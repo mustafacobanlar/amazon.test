@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         glue = "stepdefs",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
-public clsass TestRunner {
+public class TestRunner {
 }
