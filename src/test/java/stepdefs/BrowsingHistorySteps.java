@@ -42,7 +42,6 @@ public class BrowsingHistorySteps {
 
     @When("^I search for pencil product")
     public void iSearchForProduct() {
-        // call the searchForProduct method on the AmazonHomePage class
         amazonHomePage.searchForProduct();
     }
 
@@ -56,10 +55,8 @@ public class BrowsingHistorySteps {
 
     @Then("^I should be on the product details page$")
     public void iShouldBeOnProductDetailsPage() {
-        // initialize the ProductDetailsPage class
         productDetailsPage = new ProductDetailsPage(driver);
 
-        // verify that the product details page is displayed
         Assert.assertTrue("Product details page is not displayed", productDetailsPage.isProductDetailsPageDisplayed());
 
     }
@@ -72,13 +69,11 @@ public class BrowsingHistorySteps {
 
     @Then("^the product should be listed in my browsing history$")
     public void productShouldBeListedInBrowsingHistory() {
-        // click on the browsing history link
         amazonHomePage.clickOnBrowsingHistoryLink();
 
-        // verify that the browsing history page is displayed
         Assert.assertTrue("Browsing history page is not displayed", amazonHomePage.isBrowsingHistoryPageDisplayed());
 
-        // verify that the product is listed in the browsing history
+
         Assert.assertTrue("Product is not listed in browsing history", amazonHomePage.isProductListedInBrowsingHistory());
 
     }
