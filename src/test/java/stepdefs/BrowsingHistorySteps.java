@@ -1,6 +1,7 @@
 package stepdefs;
 
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 import pages.*;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -39,6 +40,8 @@ public class BrowsingHistorySteps {
 
         amazonHomePage = new AmazonHomePage(driver);
     }
+
+
 
     @When("^I search for pencil product")
     public void iSearchForProduct() {
