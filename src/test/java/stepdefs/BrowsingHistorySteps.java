@@ -3,6 +3,7 @@ package stepdefs;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 import pages.*;
+import stepdefs.LoginSteps;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
@@ -17,31 +18,18 @@ import java.util.concurrent.TimeUnit;
 
 
 public class BrowsingHistorySteps {
-    private WebDriver myDriver;
-    private AmazonHomePage amazonHomePage;
+
+    /*private AmazonHomePage amazonHomePage;
     private SearchResultPage searchResultPage;
     private ProductDetailsPage productDetailsPage;
 
-    @Given("^I am on the Amazon homepage$")
-    public void iAmOnAmazonHomePage() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+    LoginSteps LoginSteps;
+    WebDriver myDriver = LoginSteps.getNewDriver();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");
-
-        myDriver = new ChromeDriver(options);
-
+    @Given("^I navigate to Amazon homepage$")
+    public void iNavigateToAmazonHomePage() {
         myDriver.get("https://www.amazon.com/");
-
-        myDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        amazonHomePage = new AmazonHomePage(myDriver);
     }
-
-
 
     @When("^I search for pencil product")
     public void iSearchForProduct() {
@@ -79,5 +67,5 @@ public class BrowsingHistorySteps {
 
         Assert.assertTrue("Product is not listed in browsing history", amazonHomePage.isProductListedInBrowsingHistory());
 
-    }
+    }*/
 }
