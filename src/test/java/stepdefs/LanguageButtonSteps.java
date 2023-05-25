@@ -17,20 +17,6 @@ public class LanguageButtonSteps {
     WebDriver driver;
     WebDriverWait wait;
 
-    @Given("I am on the homepage")
-    public void iAmOnAmazonHomepage() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");
-
-        driver = new ChromeDriver(options);
-        driver.navigate().to("https://www.amazon.com/");
-        wait = new WebDriverWait(driver, 10);
-    }
-
     @When("I click on the language dropdown")
     public void iClickOnLanguageDropdown() {
         WebElement languageDropdown = driver.findElement(By.xpath("//*[@id=\"icp-nav-flyout\"]"));

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class BrowsingHistorySteps {
-    WebDriver driver;
+    private WebDriver myDriver;
     private AmazonHomePage amazonHomePage;
     private SearchResultPage searchResultPage;
     private ProductDetailsPage productDetailsPage;
@@ -32,13 +32,13 @@ public class BrowsingHistorySteps {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
 
-        driver = new ChromeDriver(options);
+        myDriver = new ChromeDriver(options);
 
-        driver.get("https://www.amazon.com/");
+        myDriver.get("https://www.amazon.com/");
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        myDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        amazonHomePage = new AmazonHomePage(driver);
+        amazonHomePage = new AmazonHomePage(myDriver);
     }
 
 
@@ -51,14 +51,14 @@ public class BrowsingHistorySteps {
     @And("^I click on the first search result$")
     public void iClickOnFirstSearchResult() {
 
-        searchResultPage = new SearchResultPage(driver);
+        searchResultPage = new SearchResultPage(myDriver);
 
         searchResultPage.clickOnFirstResult();
     }
 
     @Then("^I should be on the product details page$")
     public void iShouldBeOnProductDetailsPage() {
-        productDetailsPage = new ProductDetailsPage(driver);
+        productDetailsPage = new ProductDetailsPage(myDriver);
 
         Assert.assertTrue("Product details page is not displayed", productDetailsPage.isProductDetailsPageDisplayed());
 
@@ -67,7 +67,7 @@ public class BrowsingHistorySteps {
     @When("^I go back to the homepage$")
     public void iGoBackToHomepage() {
         //driver.get("https://www.amazon.com/");
-        driver.navigate().back();
+        myDriver.navigate().back();
     }
 
     @Then("^the product should be listed in my browsing history$")

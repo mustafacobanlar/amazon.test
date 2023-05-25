@@ -17,15 +17,34 @@ import pages.LoginPage;
 import java.util.concurrent.TimeUnit;
 
 public class LoginSteps {
-    private WebDriver driver;
+    private WebDriver newDriver;
     private LoginPage loginPage;
 
-    @When("^I go to Amazon login page$")
+    private AmazonHomePage thisAmazonHomePage;
+    @Given("^I am on the Amazon homepage for login$")
+    public void iAmOnAmazonHomePageForLogin() {
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-gpu");
+
+        newDriver = new ChromeDriver(options);
+
+        newDriver.get("https://www.amazon.com/");
+
+        newDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        thisAmazonHomePage = new AmazonHomePage(newDriver);
+    }
+    @And("^I go to Amazon login page$")
     public void navigateToLoginPage() {
         System.out.println("flag");
-        WebElement funcButton = driver.findElement(By.xpath("//*[@id='nav-link-accountList']"));
+        WebElement funcButton = newDriver.findElement(By.xpath("//*[@id='nav-link-accountList']"));
 
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(newDriver);
         actions.moveToElement(funcButton).perform();
     }
 
@@ -56,6 +75,6 @@ public class LoginSteps {
 
     @After
     public void tearDown() {
-        driver.quit();
+        newDriver.quit();
     }
 }
