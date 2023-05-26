@@ -6,7 +6,7 @@ Feature: Amazon Login
     And I go to Amazon login page
     When I enter my email as mcobanlar34@gmail.com
     When I click the continue button
-    When I enter my password as sa4rga02bn
+    When I enter my password as test.password
     When I click the Sign In button
     Then I should be logged in
 
