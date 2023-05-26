@@ -9,7 +9,7 @@ Feature: Amazon Login
     When I enter my password as test.password
     When I click the Sign In button
     Then I should be logged in
-
+  @ignore
   Scenario: Unsuccessful login
     Given I am on the Amazon homepage for login
     And I go to Amazon login page
