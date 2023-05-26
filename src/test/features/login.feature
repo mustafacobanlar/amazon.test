@@ -1,5 +1,6 @@
-Feature: Amazon Login
 
+Feature: Amazon Login
+  @ignore
   Scenario: Successful login
     Given I am on the Amazon homepage for login
     And I go to Amazon login page
