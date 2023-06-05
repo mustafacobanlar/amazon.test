@@ -27,7 +27,7 @@ public class LoginSteps {
     public AmazonHomePage thisAmazonHomePage;
     @Given("^I am on the Amazon homepage for login$")
     public void iAmOnAmazonHomePageForLogin() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
