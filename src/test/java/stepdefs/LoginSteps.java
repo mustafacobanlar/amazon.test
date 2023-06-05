@@ -36,6 +36,7 @@ public class LoginSteps {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
         options.addArguments("--start-maximized");
+        options.addArguments("--headless");
 
         newDriver = new ChromeDriver(options);
 
